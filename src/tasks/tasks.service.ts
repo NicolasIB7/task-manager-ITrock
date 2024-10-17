@@ -14,9 +14,10 @@ export class TaskService {
     private readonly httpService: HttpService,
   ) {}
 
-  create(createTaskDto: CreateTaskDto): Promise<Tasks> {
+  create(userId:number, createTaskDto: CreateTaskDto): Promise<Tasks> {
     const task = new Tasks();
     task.title = createTaskDto.title;
+    task.userId = userId;
 
     return this.tasksRepository.save(task);
   }

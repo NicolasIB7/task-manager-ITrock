@@ -5,6 +5,7 @@ import {
   Param,
   Post,
   ParseIntPipe,
+  Request
 } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { Tasks } from './entities/task.entity';
@@ -15,12 +16,14 @@ export class TasksController {
   constructor(private tasksService: TaskService) {}
 
   @Post()
-  create(@Body() createTaskDto: CreateTaskDto): Promise<Tasks> {
-    return this.tasksService.create(createTaskDto);
+  create(@Request() req,@Body() createTaskDto: CreateTaskDto): Promise<Tasks> {
+    const userId = req.user.sub;
+    return this.tasksService.create(userId,createTaskDto);
   }
 
-  @Get(':userId')
-  findAllByUserId(@Param('userId', ParseIntPipe) userId: number): Promise<Tasks[]> {
+  @Get()
+  findAllByUserId(@Request() req): Promise<Tasks[]> {
+    const userId = req.user.id;
     return this.tasksService.findAllByUserId(userId);
   }
 
