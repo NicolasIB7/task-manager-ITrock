@@ -178,7 +178,6 @@ Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero m
 
 ## Recursos utilizados
 
-Check out a few resources that may come in handy when working with NestJS:
 
 - Documentación [NestJS](https://docs.nestjs.com) 
 
