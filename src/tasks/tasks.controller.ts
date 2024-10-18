@@ -6,6 +6,7 @@ import {
   Post,
   ParseIntPipe,
   Request,
+  Delete,
 } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { Tasks } from './entities/task.entity';
@@ -63,5 +64,16 @@ export class TasksController {
   async findOne(@Request() req, @Param('id', ParseIntPipe) id: number) {
     const userId = req.user.sub;
     return this.tasksService.findOne(userId, id);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete specific task by ID' })
+  @ApiResponse({
+    status: 201,
+    description: 'The task was deleted',
+    type: Tasks,
+  })
+  async remove(@Param('id') id: number): Promise<void> {
+    return this.tasksService.remove(id);
   }
 }

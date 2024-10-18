@@ -61,6 +61,22 @@ Las principales características y componentes del diseño son los siguientes:
 
 A continuacion se detallaran los pasos para lograr levantar el servidor y utilizar la API restful:
 
+Antes que todo, aquí se pondrán las variables de entorno necesarias para la base de datos y para el archivo de constants.ts que utiliza el módulo de autorización. Esto solo a modo de descripción, en un entorno REAL no se debe hacer.
+
+`DATABASE_HOST=mysql`
+
+`DATABASE_PORT=3306`
+
+`DATABASE_USER=root`
+
+`DATABASE_PASSWORD=root`
+
+`DATABASE_NAME=task_manager_itrock`
+
+Para el archivo constants: 
+
+`secret: 'task_auth_jwt' `
+
 ### Localmente
 
 1. Abre la terminal o línea de comandos en tu computadora.

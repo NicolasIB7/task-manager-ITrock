@@ -57,4 +57,8 @@ export class TaskService {
     console.log(userId);
     return this.tasksRepository.find({ where: { userId } });
   }
+
+  async remove(id: number): Promise<void> {
+    await this.tasksRepository.delete(id);
+  }
 }

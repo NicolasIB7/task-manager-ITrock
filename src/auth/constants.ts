@@ -1,5 +1,5 @@
 
 export const jwtConstants = {
-    secret: 'task_auth_jwt',
+    secret: '', // Se encuentra en el Readme.md
   };
   
