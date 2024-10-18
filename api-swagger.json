@@ -1,0 +1,182 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+    "/tasks": {
+    "post": {
+    "operationId": "TasksController_create",
+    "summary": "Create a new task",
+    "parameters": [],
+    "requestBody": {
+    "required": true,
+    "content": {
+    "application/json": {
+    "schema": {
+    "$ref": "#/components/schemas/CreateTaskDto"
+    }
+    }
+    }
+    },
+    "responses": {
+    "201": {
+    "description": "La tarea fue creada.",
+    "content": {
+    "application/json": {
+    "schema": {
+    "$ref": "#/components/schemas/Tasks"
+    }
+    }
+    }
+    }
+    },
+    "tags": [
+    "tasks"
+    ],
+    "security": [
+    {
+    "bearer": []
+    }
+    ]
+    },
+    "get": {
+    "operationId": "TasksController_findAllByUserId",
+    "summary": "Search for tasks belonging to authenticated users",
+    "parameters": [],
+    "responses": {
+    "201": {
+    "description": "",
+    "content": {
+    "application/json": {
+    "schema": {
+    "$ref": "#/components/schemas/Tasks"
+    }
+    }
+    }
+    }
+    },
+    "tags": [
+    "tasks"
+    ],
+    "security": [
+    {
+    "bearer": []
+    }
+    ]
+    }
+    },
+    "/tasks/populate": {
+    "get": {
+    "operationId": "TasksController_findExternalData",
+    "summary": "Get and save external data tasks",
+    "parameters": [],
+    "responses": {
+    "201": {
+    "description": "Successfully saved tasks",
+    "content": {
+    "application/json": {
+    "schema": {
+    "$ref": "#/components/schemas/Tasks"
+    }
+    }
+    }
+    }
+    },
+    "tags": [
+    "tasks"
+    ],
+    "security": [
+    {
+    "bearer": []
+    }
+    ]
+    }
+    },
+    "/tasks/{id}": {
+    "get": {
+    "operationId": "TasksController_findOne",
+    "summary": "Get specific task by ID",
+    "parameters": [
+    {
+    "name": "id",
+    "required": true,
+    "in": "path",
+    "schema": {
+    "type": "number"
+    }
+    }
+    ],
+    "responses": {
+    "201": {
+    "description": "The task was found",
+    "content": {
+    "application/json": {
+    "schema": {
+    "$ref": "#/components/schemas/Tasks"
+    }
+    }
+    }
+    }
+    },
+    "tags": [
+    "tasks"
+    ],
+    "security": [
+    {
+    "bearer": []
+    }
+    ]
+    }
+    },
+    "/auth/login": {
+    "post": {
+    "operationId": "AuthController_signIn",
+    "summary": "Authorize user",
+    "parameters": [],
+    "responses": {
+    "200": {
+    "description": ""
+    }
+    },
+    "tags": [
+    "auth"
+    ],
+    "security": [
+    {
+    "bearer": []
+    }
+    ]
+    }
+    }
+    },
+    "info": {
+    "title": "API Gestión de tareas",
+    "description": "Funcionalidades necesarias para interactuar con los endpoints necesarios que nos permiten gestionar de manera eficiente las tareas propuestas.",
+    "version": "1.0",
+    "contact": {}
+    },
+    "tags": [
+    {
+    "name": "tasks",
+    "description": ""
+    }
+    ],
+    "servers": [],
+    "components": {
+    "securitySchemes": {
+    "bearer": {
+    "scheme": "bearer",
+    "bearerFormat": "JWT",
+    "type": "http"
+    }
+    },
+    "schemas": {
+    "CreateTaskDto": {
+    "type": "object",
+    "properties": {}
+    },
+    "Tasks": {
+    "type": "object",
+    "properties": {}
+    }
+    }
+    }
+    }
