@@ -1,86 +1,164 @@
+# IT Rock - API RESTful Task manager 
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="https://www.itrock.com.ar/" target="blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ZQolQsWlH2un9fCZVk2rqWoHU5Y505P0AA&s" width="120" alt="ITrock Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Introducción 
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+ El objetivo de este proyecto es realizar una API restful que cumpla con un sistema de gestión de tareas. Esta tendrá un proceso de autenticación estático que primero permitirá al usuario poder loguearse, para luego poder utilizar las demás funcionalidades, tales como crear una tarea, poder buscar las totalidad de las mismas así como también una en particular. Por otro lado, también interactuará con una API externa para poder obtener tareas y guardarlas en nuestra base de datos.
 
-## Description
+## Características principales:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+#### Autenticación JWT Token
+Se podrá loguear con credenciales estáticas, que primero validará el usuario y contraseña para luego entregar un token que será utilizado para acceder e interactuar con los demás endpoints.
 
-## Project setup
+#### Persistencia de datos
+El sistema obtendrá los datos de las tareas a través de una API o una base de datos. Así como también guardar las tareas creadas.
 
-```bash
-$ npm install
-```
+#### Gestionar tareas
+El sistema permitirá que el usuario, una vez logueado, pueda interactuar con el sistema creando tareas, buscando todas las que son de su propiedad así como también tareas especificas. 
 
-## Compile and run the project
 
-```bash
-# development
-$ npm run start
+## Descripción
 
-# watch mode
-$ npm run start:dev
+La API fue desarrollada con una arquitectura monolitica y con estructura de archivos con arquitectura por capas, estructura que provee Nestjs.
 
-# production mode
-$ npm run start:prod
-```
+Se ha decidido utilizar MySQL como base de datos para este proyecto. Aunque es de pequeña escala, considero que la relación entre tareas y usuarios es fundamental, lo que hace que una base de datos relacional sea la opción más adecuada. Con esta elección, se logrará una mejor organización, permitiendo establecer una estructura clara de usuarios, así como su relación con las tareas y otras funcionalidades que puedan agregarse en el futuro.
 
-## Run tests
+Las principales características y componentes del diseño son los siguientes:
 
-```bash
-# unit tests
-$ npm run test
+1) Utilización de esquemas de datos: Se utilizan esquemas de datos para las tareas.
 
-# e2e tests
-$ npm run test:e2e
+2) Utilización de endpoints: Se utilizan endpoints específicos para cada funcionalidad, lo que permite obtener la información necesaria de la base de datos.
 
-# test coverage
-$ npm run test:cov
-```
+3) Uso de Docker: Se utiliza Docker para contenerizar nuestra API, lo que facilita su uso y aplicación en cualquier sistema. Esto hace que el proyecto sea más fluido y escalable.
 
-## Resources
+
+
+## Tecnologías utilizadas
+
+**Lenguaje principal**: Typescript 
+
+
+**Entorno de ejecución**: Node.js 
+
+
+**Framework**: NestJs 
+
+
+**Sistema de contenedores**: Docker 
+
+
+**Base de datos**: MySql (BDD relacional) 
+
+
+**Biblioteca**: TypeORM
+
+
+
+## Ejecución y uso de la API
+
+A continuacion se detallaran los pasos para lograr levantar el servidor y utilizar la API restful:
+
+### Localmente
+
+1. Abre la terminal o línea de comandos en tu computadora.
+
+2. Navega a la ubicación donde deseas clonar el repositorio utilizando el comando `cd` (ejemplo: `cd carpeta/destino`).
+
+3. Clona el repositorio ejecutando el siguiente comando:
+        git clone <URL_DEL_REPOSITORIO>
+    
+    Reemplaza `<URL_DEL_REPOSITORIO>` por la URL del repositorio en GitHub.
+
+4. Una vez que el repositorio se haya clonado correctamente, navega al directorio del proyecto usando `cd` (ejemplo: `cd nombre_del_proyecto`).
+
+5. Instala las dependencias del proyecto ejecutando el siguiente comando:
+
+        `npm install`
+
+    Esto instalará todas las dependencias definidas en el archivo `package.json`.
+
+6. Asegúrate de tener una instancia de MySQL en ejecución. Puedes instalar MySQL localmente y utilizar MySQL Workbench.
+
+7. Configura la conexión a la base de datos, deberás crear un archivo `.env` y rellenar los datos necesarios para la conexión.
+
+8. Inicia el servidor ejecutando uno de los siguientes comandos:
+
+    - `npm run start`: para iniciar el servidor con NestJs
+
+        Esto iniciará el servidor y estará listo para recibir solicitudes en el puerto especificado.
+
+9. Ahora puedes comenzar a realizar solicitudes HTTP a los diferentes endpoints utilizando herramientas como Postman o Insomnia. Por ejemplo:
+
+        `http://localhost:3000/<ENDPOINT_ESPECIFICO>`
+
+
+¡Ahora estás listo para clonar el repositorio, configurar el servidor y utilizar la API localmente!
+
+
+
+### Con docker (local)
+
+1. Abre la terminal o línea de comandos en tu computadora.
+
+2. Navega a la ubicación donde deseas clonar el repositorio utilizando el comando `cd` (ejemplo: `cd carpeta/destino`).
+
+3. Clona el repositorio ejecutando el siguiente comando:
+        git clone <URL_DEL_REPOSITORIO>
+    
+        Reemplaza `<URL_DEL_REPOSITORIO>` por la URL del repositorio en GitHub.
+
+4. Una vez que el repositorio se haya clonado correctamente, navega al directorio del proyecto usando `cd` (ejemplo: `cd nombre_del_proyecto`).
+
+5. Instala las dependencias del proyecto ejecutando el siguiente comando:
+
+        `npm install`
+
+    Esto instalará todas las dependencias definidas en el archivo `package.json`.
+
+
+6. Configura la conexión a la base de datos, deberás crear un archivo `.env` y rellenar los datos necesarios para la conexión.
+
+7. Antes de iniciar el servidor deberás tener correctamente instalado Docker, para ello te dejo dos videos introductorios para su descarga, instalacion y primeros pasos:
+
+        
+    [Instalación](https://www.youtube.com/watch?v=BK-C2RofmTE&t=12s)
+
+    [Primeros pasos](https://www.youtube.com/watch?v=iLlmm0L-VpQ)
+
+
+8. Una vez tengas Docker correctamente instalado, pasaremos a orquestar nuestro proyecto gracias al archivo docker-compose.yml. 
+    Abre la terminal y ejecuta:
+
+        docker-compose up --build   
+
+
+9. Esperamos a que se instale lo necesario y ya podremos utilizar los ejecutar las funcionalidades.
+
+
+10. Esto es así ya que se utilizó una arquitectura monolítica, pero si se decide utilizar microservicios los pasos a seguir cambian un poco ya que debemos tener varios archivos Dockerfile en cada carpeta que queramos que sea un servicio especifico. 
+
+11. Luego de esto sí, orquestar todo con el compose para que se comuniquen entre sí.
+
+
+## Aclaraciones importantes - cosas a destacar
+
+En este apartado, comentaré algunas mejoras y consideraciones adicionales para el proyecto. Si bien obviamente se pueden implementar muchas cosas adicionales, me limitaré a comentar lo que hubiese agregado para mejorar las funcionalidades del servicio pedido.
+
+- **Módulo usuarios más completo**: Aunque se implementó un módulo de usuarios, este es de caracter estático. Para una funcionalidad más real e interactiva, lo ideal sería agregar un nuevo módulo de usuarios donde contenga su propia tabla que almacene información de cada usuario y que cada usuario se relacione con la tabla de tareas. Es decir que haya una relación uno a muchos, ya que un usuario puede tener una o más tareas.
+
+- **Agregar endpoints faltantes**: Para una funcionalidad completa, sería correcto agregar la totalidad del CRUD, que un usuario autenticado pueda borrar o actualizar sus tareas, así como también tener determinados filtros que le permita la búsqueda más sencilla para eso.
+
+- **Agregar testing**: Es fundamental que nuestro proyecto posea el apartado de testing. Probar funcionalidades especificas o testear end to end utilizando heeramientas como Jest.
+
+Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero me parecía correcto nombrar como mejoraría y ampliaria la aplicación.
+
+
+## Recursos utilizados
 
 Check out a few resources that may come in handy when working with NestJS:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- Documentación [NestJS](https://docs.nestjs.com) 
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
