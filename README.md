@@ -167,6 +167,10 @@ En este apartado, comentaré algunas mejoras y consideraciones adicionales para 
 
 - **Agregar endpoints faltantes**: Para una funcionalidad completa, sería correcto agregar la totalidad del CRUD, que un usuario autenticado pueda borrar o actualizar sus tareas, así como también tener determinados filtros que le permita la búsqueda más sencilla para eso.
 
+- **Agregar paginado y filtros**: Que el usuaario tenga la posibilidad de poder filtrar por palabras asi como también tener un paginado de las tareas.
+
+- **Agregar campos de creación y actualización a los esquemas**: Es un faltante agregar a los esquemas una propiedad de creación, es decir que para cada registro sql complete automaticamente el campo de creación, lo mismo para cuando se actualiza el registro. Esto nos da un mayor control sobre las tareas, permite tal ves filtrar por fecha, etc.
+
 - **Agregar testing**: Es fundamental que nuestro proyecto posea el apartado de testing. Probar funcionalidades especificas o testear end to end utilizando heeramientas como Jest.
 
 Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero me parecía correcto nombrar como mejoraría y ampliaria la aplicación.
